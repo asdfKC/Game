@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqeutbtxqwqnc"]
+
+[ext_resource type="Script" uid="uid://de30n6bsb0kl7" path="res://cananonn.gd" id="1_123hx"]
+[ext_resource type="Texture2D" uid="uid://bekb4sxdetblc" path="res://cannon.png" id="2_6k2hq"]
+[ext_resource type="PackedScene" uid="uid://da8vjt01mhsgo" path="res://projectile.tscn" id="2_m3pgo"]
+
+[node name="cannon" type="Node2D" unique_id=294227204]
+script = ExtResource("1_123hx")
+projectile_scene = ExtResource("2_m3pgo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=426674136]
+position = Vector2(-7, 6)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6k2hq")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=364451915]
+
+[node name="Timer" type="Timer" parent="." unique_id=1510508907]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

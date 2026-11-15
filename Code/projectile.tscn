@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://da8vjt01mhsgo"]
+
+[ext_resource type="Script" uid="uid://bgoqerrci6mmu" path="res://projectile.gd" id="1_qxf0c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_akgne"]
+load_path = "res://.godot/imported/shot.png-9d5126deb1fd9135cad1590f1d212cb3.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8sxj"]
+size = Vector2(83.25, 29.9375)
+
+[node name="projectile" type="Area2D" unique_id=846149017]
+position = Vector2(0, -1)
+script = ExtResource("1_qxf0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=627027144]
+position = Vector2(-354.99997, -380)
+scale = Vector2(0.2, 0.221)
+texture = SubResource("CompressedTexture2D_akgne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1637903896]
+position = Vector2(-358, -377)
+shape = SubResource("RectangleShape2D_f8sxj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
